@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura & Sabor | Gastronomía de Autor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Sabor & Prestigio | Restaurante Gourmet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary: #1a1a1a;
-            --accent: #c4a47c;
-            --text-light: #f4f4f4;
-            --text-dark: #333;
-            --transition: all 0.3s ease;
+            --oro: #c5a059;
+            --negro-fondo: #0a0a0a;
+            --negro-suave: #1a1a1a;
+            --blanco: #ffffff;
+            --gris: #a0a0a0;
         }
 
         * {
@@ -23,61 +24,21 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #fff;
-            color: var(--text-dark);
+            background-color: var(--negro-fondo);
+            color: var(--blanco);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* --- Header & Navigation --- */
-        header {
-            position: fixed;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        header.scrolled {
-            background: rgba(26, 26, 26, 0.95);
-            padding: 15px 50px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--accent);
-            font-weight: bold;
-            text-decoration: none;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li { margin-left: 30px; }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 400;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover { color: var(--accent); }
-
-        /* --- Hero Section --- */
-        .hero {
+        /* --- Header --- */
+        header {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -85,71 +46,87 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--oro);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--blanco);
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--oro);
+        }
+
+        .hero-content h1 {
             font-size: 4rem;
             margin-bottom: 10px;
         }
 
-        .hero p {
+        .hero-content p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-        }
-
-        .btn {
-            padding: 15px 35px;
-            border: 2px solid var(--accent);
-            color: white;
-            text-decoration: none;
+            color: var(--oro);
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            transition: var(--transition);
-            background: transparent;
         }
 
-        .btn:hover {
-            background: var(--accent);
-            color: var(--primary);
+        /* --- Menú --- */
+        .menu-section {
+            padding: 100px 10%;
+            background-color: var(--negro-fondo);
         }
-
-        /* --- Menu Section --- */
-        .section { padding: 100px 10%; text-align: center; }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            position: relative;
+            text-align: center;
+            margin-bottom: 60px;
         }
 
-        .section-title::after {
-            content: '';
-            width: 50px;
-            height: 2px;
-            background: var(--accent);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--oro);
         }
 
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 50px;
         }
 
         .menu-item {
-            text-align: left;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px dotted var(--gris);
             padding-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .menu-header {
@@ -159,207 +136,133 @@
             margin-bottom: 5px;
         }
 
-        .menu-header h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; }
-
-        .price { color: var(--accent); font-weight: 600; }
-
-        .menu-item p { font-size: 0.85rem; color: #777; }
-
-        /* --- Reservations Section --- */
-        .reservation {
-            background: #f9f9f9;
+        .menu-header h3 {
+            color: var(--blanco);
+            font-size: 1.4rem;
         }
 
-        .res-form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        .price {
+            color: var(--oro);
+            font-weight: bold;
         }
 
-        .res-form input, .res-form select, .res-form textarea {
-            padding: 12px;
-            border: 1px solid #ddd;
-            font-family: inherit;
+        .menu-item p {
+            font-size: 0.9rem;
+            color: var(--gris);
+            font-style: italic;
         }
 
-        .res-form textarea { grid-column: span 2; height: 100px; }
-
-        .res-form .btn-submit {
-            grid-column: span 2;
-            background: var(--primary);
+        /* --- Botón WhatsApp --- */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
             color: white;
-            border: none;
-            padding: 15px;
-            cursor: pointer;
-            transition: var(--transition);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            text-decoration: none;
         }
 
-        .res-form .btn-submit:hover { background: var(--accent); }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
 
         /* --- Footer --- */
         footer {
-            background: var(--primary);
-            color: white;
-            padding: 50px 10%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid var(--negro-suave);
+            background: var(--negro-suave);
         }
 
-        .footer-box h4 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 1.5rem;
-            margin-right: 15px;
-            transition: var(--transition);
-        }
-
-        .social-icons a:hover { color: var(--accent); }
-
+        /* --- Responsividad --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            header { padding: 15px 20px; }
-            header.scrolled { padding: 10px 20px; }
-            .res-form { grid-template-columns: 1fr; }
-            .res-form textarea, .res-form .btn-submit { grid-column: auto; }
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            nav { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <header id="navbar">
-        <a href="#" class="logo">Aura & Sabor</a>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#menu">Carta</a></li>
-                <li><a href="#reserva">Reservas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <div class="logo">Sabor & Vid</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            <p>Experiencia Culinaria Única</p>
+            <h1>La Haute Cuisine</h1>
+        </div>
     </header>
 
-    <section id="inicio" class="hero">
-        <p>EXPERIENCIA GASTRONÓMICA ÚNICA</p>
-        <h1>Donde cada bocado cuenta una historia</h1>
-        <a href="#menu" class="btn">Explorar Carta</a>
-    </section>
+    <section id="menu" class="menu-section">
+        <div class="section-title">
+            <h2>Nuestra Carta</h2>
+            <p>Selección exclusiva del Chef</p>
+        </div>
 
-    <section id="menu" class="section">
-        <h2 class="section-title">Nuestra Selección</h2>
         <div class="menu-grid">
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3>Salmón Ahumado al Hinojo</h3>
-                    <span class="price">$24.00</span>
+            <div class="menu-category">
+                <div class="menu-item">
+                    <div class="menu-header">
+                        <h3>Carpaccio de Res</h3>
+                        <span class="price">S/ 45</span>
+                    </div>
+                    <p>Finas láminas de lomo, alcaparras, parmesano y aceite de trufa.</p>
                 </div>
-                <p>Acompañado de crema de aguacate, alcaparras fritas y esencia de cítricos.</p>
+                <div class="menu-item">
+                    <div class="menu-header">
+                        <h3>Ceviche de Autor</h3>
+                        <span class="price">S/ 52</span>
+                    </div>
+                    <p>Pesca del día, leche de tigre al ají amarillo y crocante de camote.</p>
+                </div>
             </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3>Risotto de Hongos Silvestres</h3>
-                    <span class="price">$19.00</span>
+
+            <div class="menu-category">
+                <div class="menu-item">
+                    <div class="menu-header">
+                        <h3>Risotto de Hongos</h3>
+                        <span class="price">S/ 68</span>
+                    </div>
+                    <p>Arroz carnaroli, variedad de setas silvestres y aroma de tomillo.</p>
                 </div>
-                <p>Arroz carnaroli cremado con variedad de setas del bosque y aceite de trufa.</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3>Lomo en Costra de Hierbas</h3>
-                    <span class="price">$28.00</span>
+                <div class="menu-item">
+                    <div class="menu-header">
+                        <h3>Lomo en Costra</h3>
+                        <span class="price">S/ 85</span>
+                    </div>
+                    <p>Medallón de lomo fino en costra de pimienta con puré rústico.</p>
                 </div>
-                <p>Corte premium con reducción de vino tinto y puré de coliflor trufado.</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3>Tarta de Frutos del Bosque</h3>
-                    <span class="price">$12.00</span>
-                </div>
-                <p>Base crujiente de almendras, crema diplomática y frutos frescos de estación.</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3>Pulpo a las Brasas</h3>
-                    <span class="price">$26.00</span>
-                </div>
-                <p>Con papas nativas confitadas, alioli de ajo negro y pimentón ahumado.</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3>Gnocchi de Calabaza</h3>
-                    <span class="price">$18.00</span>
-                </div>
-                <p>Hechos a mano con mantequilla de salvia y láminas de queso pecorino.</p>
             </div>
         </div>
-    </section>
-
-    <section id="reserva" class="section reservation">
-        <h2 class="section-title">Reserva tu Mesa</h2>
-        <form class="res-form">
-            <input type="text" placeholder="Nombre completo" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="date" required>
-            <select required>
-                <option value="" disabled selected>Hora</option>
-                <option>19:00</option>
-                <option>20:00</option>
-                <option>21:00</option>
-                <option>22:00</option>
-            </select>
-            <input type="number" placeholder="Personas" min="1" max="10">
-            <input type="tel" placeholder="Teléfono">
-            <textarea placeholder="Alguna petición especial (alergias, cumpleaños...)"></textarea>
-            <button type="submit" class="btn-submit">Confirmar Reserva</button>
-        </form>
     </section>
 
     <footer id="contacto">
-        <div class="footer-box">
-            <h4>Aura & Sabor</h4>
-            <p>Alta cocina con alma. Ingredientes locales seleccionados cuidadosamente para deleitar sus sentidos.</p>
-        </div>
-        <div class="footer-box">
-            <h4>Horarios</h4>
-            <p>Mar - Jue: 13:00 - 22:00</p>
-            <p>Vie - Sáb: 13:00 - 23:00</p>
-            <p>Dom: 12:00 - 17:00</p>
-        </div>
-        <div class="footer-box">
-            <h4>Síguenos</h4>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-tripadvisor"></i></a>
-            </div>
-        </div>
+        <p>&copy; 2026 Restaurante Sabor & Vid. Todos los derechos reservados.</p>
+        <p style="color: var(--oro); margin-top: 10px;">Calle Las Flores 123, Lima, Perú</p>
     </footer>
 
-    <script>
-        // Efecto de scroll en el navbar
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+    <a href="https://wa.me/51999025155?text=Hola,%20me%20gustaría%20hacer%20una%20reservación" 
+       class="whatsapp-btn" 
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-        // Smooth Scroll para los enlaces de navegación
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const section = document.querySelector(this.getAttribute('href'));
-                section.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
 </body>
 </html>
