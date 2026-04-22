@@ -3,201 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="L'ESSENCE - Experiencia Gastronómica de Lujo en Lima">
-    <title>L'ESSENCE | Haute Cuisine</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-
+    <title>MotoExpert | Taller Mecánico Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --oro: #D4AF37;
-            --negro: #080808;
-            --mate: #121212;
-            --blanco: #f4f4f4;
-            --gris: #888;
-            --font-h: 'Cinzel', serif;
-            --font-p: 'Cormorant Garamond', serif;
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 15px 20px;
+            font-size: 24px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
-
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            background-color: var(--negro); 
-            color: var(--blanco); 
-            font-family: var(--font-p); 
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Navbar */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 20px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; transition: background 0.4s;
-        }
-        nav.scrolled { background: rgba(8, 8, 8, 0.95); padding: 12px 5%; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
-        .logo { font-family: var(--font-h); color: var(--oro); font-size: 1.5rem; letter-spacing: 3px; text-decoration: none; }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-            url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=60');
-            background-size: cover; background-position: center; background-attachment: fixed;
-        }
-        .hero h1 { font-family: var(--font-h); font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 1rem; color: var(--blanco); }
-        .hero p { font-size: 1.2rem; letter-spacing: 5px; color: var(--oro); text-transform: uppercase; }
-
-        /* Section Global */
-        section { padding: 80px 8%; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-family: var(--font-h); color: var(--oro); font-size: 2.5rem; }
-
-        /* Menu Grid */
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .category-title { color: var(--oro); border-bottom: 1px solid var(--oro); margin-bottom: 25px; font-family: var(--font-h); padding-bottom: 10px; }
-        .item { display: flex; justify-content: space-between; margin-bottom: 20px; transition: 0.3s; }
-        .item:hover { transform: translateX(10px); }
-        .item-info h3 { font-size: 1.3rem; margin-bottom: 5px; }
-        .item-info p { color: var(--gris); font-size: 1rem; font-style: italic; }
-        .price { color: var(--oro); font-family: var(--font-h); font-weight: bold; }
-
-        /* Features/Gallery */
-        .gallery { display: flex; flex-wrap: wrap; gap: 15px; padding: 40px 0; }
-        .gallery img { 
-            flex: 1 1 300px; height: 350px; object-fit: cover; 
-            border-radius: 4px; filter: brightness(0.7) grayscale(0.3); transition: 0.5s;
-        }
-        .gallery img:hover { filter: brightness(1) grayscale(0); }
-
-        /* Botón WhatsApp */
-        .wa-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background: #25d366; color: white; width: 60px; height: 60px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 30px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            text-decoration: none; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .wa-float:hover { transform: scale(1.1) rotate(10deg); }
-
-        /* Footer */
-        footer { background: #000; padding: 60px 5%; text-align: center; border-top: 1px solid rgba(212,175,55,0.1); }
-        .footer-content { max-width: 800px; margin: 0 auto; }
-        .footer-socials { margin: 20px 0; display: flex; justify-content: center; gap: 20px; }
-        .footer-socials a { color: var(--oro); font-size: 1.2rem; transition: 0.3s; }
-        .footer-socials a:hover { color: var(--blanco); }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            section { padding: 50px 5%; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero { background-attachment: scroll; } /* Mejor rendimiento en móviles */
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-    <nav id="navbar">
-        <a href="#" class="logo">L'ESSENCE</a>
-        <div style="color: var(--oro); font-size: 0.8rem; letter-spacing: 2px;">LIMA · PERÚ</div>
+    <nav class="bg-black text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold italic tracking-tighter">MOTO<span class="text-orange-500">EXPERT</span></h1>
+            <div class="space-x-6 hidden md:block">
+                <a href="#inicio" class="hover:text-orange-500">Inicio</a>
+                <a href="#servicios" class="hover:text-orange-500">Servicios</a>
+                <a href="#contacto" class="hover:text-orange-500">Contacto</a>
+            </div>
+        </div>
     </nav>
 
-    <header class="hero">
-        <p>Alta Cocina</p>
-        <h1>Experiencia Sensorial</h1>
-        <a href="#menu" style="border: 1px solid var(--oro); padding: 12px 30px; color: var(--oro); text-decoration: none; font-family: var(--font-h); margin-top: 20px; letter-spacing: 2px;">VER CARTA</a>
+    <header id="inicio" class="bg-cover bg-center h-[500px] flex items-center justify-center text-center text-white" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558981403-c5f91cbba527?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+        <div>
+            <h2 class="text-5xl font-extrabold mb-4">TU PASIÓN EN BUENAS MANOS</h2>
+            <p class="text-xl mb-8">Mantenimiento integral y reparación especializada para todo tipo de motos.</p>
+            <a href="#contacto" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition">Reserva tu Cita</a>
+        </div>
     </header>
 
-    <section id="menu">
-        <div class="section-title">
-            <h2>Nuestra Selección</h2>
-            <p>Ingredientes estacionales y técnica pura</p>
-        </div>
-
-        <div class="menu-grid">
-            <div class="category">
-                <h3 class="category-title">Primeros Pasos</h3>
-                <div class="item">
-                    <div class="item-info">
-                        <h3>Carpaccio de Wagyu</h3>
-                        <p>Alioli de trufa negra y lascas de Grana Padano.</p>
-                    </div>
-                    <span class="price">S/ 65</span>
-                </div>
-                <div class="item">
-                    <div class="item-info">
-                        <h3>Ceviche de Mar Adentro</h3>
-                        <p>Pesca del día, leche de tigre cremosa y camote glaseado.</p>
-                    </div>
-                    <span class="price">S/ 58</span>
-                </div>
+    <section id="servicios" class="py-20 container mx-auto px-4">
+        <h3 class="text-3xl font-bold text-center mb-12 uppercase tracking-wide">Nuestros Servicios</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 shadow-lg rounded-lg text-center border-b-4 border-orange-500">
+                <i class="fas fa-tools text-4xl text-orange-500 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Mantenimiento</h4>
+                <p class="text-gray-600">Cambio de aceite, filtros y revisión general de seguridad.</p>
             </div>
-
-            <div class="category">
-                <h3 class="category-title">Platos de Firma</h3>
-                <div class="item">
-                    <div class="item-info">
-                        <h3>Lomo en Costra de Hierbas</h3>
-                        <p>Puré rústico y reducción de vino Malbec.</p>
-                    </div>
-                    <span class="price">S/ 82</span>
-                </div>
-                <div class="item">
-                    <div class="item-info">
-                        <h3>Risotto de Setas</h3>
-                        <p>Variedad de hongos silvestres y aceite de tomillo.</p>
-                    </div>
-                    <span class="price">S/ 68</span>
-                </div>
+            <div class="bg-white p-8 shadow-lg rounded-lg text-center border-b-4 border-orange-500">
+                <i class="fas fa-motorcycle text-4xl text-orange-500 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Motor y Transmisión</h4>
+                <p class="text-gray-600">Ajuste de válvulas, embrague y reparación completa de motores.</p>
+            </div>
+            <div class="bg-white p-8 shadow-lg rounded-lg text-center border-b-4 border-orange-500">
+                <i class="fas fa-bolt text-4xl text-orange-500 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Sistema Eléctrico</h4>
+                <p class="text-gray-600">Diagnóstico computarizado, baterías y sistemas de encendido.</p>
             </div>
         </div>
     </section>
 
-    <div class="gallery">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=600&q=60" alt="Ambiente">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-33b0744d8477?auto=format&fit=crop&w=600&q=60" alt="Plato Gourmet">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=60" alt="Vinos">
-    </div>
-
-    <section id="contacto" style="text-align: center;">
-        <h2 style="font-family: var(--font-h); color: var(--oro); margin-bottom: 20px;">Visítanos</h2>
-        <p>Av. Principal 123, San Isidro</p>
-        <p>Martes a Domingo | 12:30 PM - 11:00 PM</p>
+    <section id="contacto" class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-3xl font-bold mb-6">Contáctanos</h3>
+                <p class="mb-6 text-gray-400">¿Tienes una emergencia o quieres agendar un mantenimiento? Escríbenos o visítanos directamente en nuestro taller.</p>
+                <ul class="space-y-4">
+                    <li><i class="fas fa-map-marker-alt text-orange-500 mr-3"></i> Av. Principal 123, Lima, Perú</li>
+                    <li><i class="fas fa-phone text-orange-500 mr-3"></i> +51 999 025 155</li>
+                    <li><i class="fas fa-clock text-orange-500 mr-3"></i> Lun - Sáb: 8:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+            <form class="bg-white p-8 rounded-lg text-gray-800 shadow-xl">
+                <div class="mb-4">
+                    <label class="block mb-2 font-bold">Nombre</label>
+                    <input type="text" class="w-full p-2 border rounded focus:outline-orange-500" placeholder="Tu nombre">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-bold">Modelo de Moto</label>
+                    <input type="text" class="w-full p-2 border rounded focus:outline-orange-500" placeholder="Ej: Pulsar NS 200">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-bold">Mensaje</label>
+                    <textarea class="w-full p-2 border rounded focus:outline-orange-500" rows="4" placeholder="¿Qué necesita tu moto?"></textarea>
+                </div>
+                <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded transition">Enviar Mensaje</button>
+            </form>
+        </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <h2 class="logo">L'ESSENCE</h2>
-            <div class="footer-socials">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-tripadvisor"></i></a>
-            </div>
-            <p style="font-size: 0.8rem; color: var(--gris);">© 2026 Reservados todos los derechos.</p>
-        </div>
+    <footer class="bg-black text-gray-500 py-6 text-center">
+        <p>&copy; 2024 MotoExpert Perú. Todos los derechos reservados.</p>
     </footer>
 
-    <a href="https://wa.me/51999025155?text=Deseo%20hacer%20una%20reserva" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <a href="https://wa.me/51999025155?text=Hola,%20quisiera%20pedir%20una%20cita%20para%20mi%20moto." class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
+        <span class="text-sm ml-2 hidden md:inline">¡Háblanos por WhatsApp!</span>
     </a>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        });
-
-        // Script para cargar FontAwesome de forma asíncrona (Optimización)
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("Página cargada y optimizada.");
-        });
-    </script>
 </body>
 </html>
