@@ -1,0 +1,154 @@
+/* Configuraciones Globales */
+:root {
+    --primary: #d32f2f;
+    --dark: #121212;
+    --gray-dark: #1e1e1e;
+    --text-light: #ffffff;
+    --text-muted: #b3b3b3;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Navbar Moderna */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8%;
+    background: var(--dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--text-light);
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.logo span { color: var(--primary); }
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar ul li { margin-left: 2rem; }
+
+.navbar a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.navbar a:hover { color: var(--primary); }
+
+.btn-login {
+    background: var(--primary);
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 50px;
+}
+
+/* Hero Section con Overlay */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                url('https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=2071&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: white;
+    max-width: 800px;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    background: rgba(211, 47, 47, 0.2);
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.btn-main {
+    background: var(--primary);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px;
+}
+
+/* Tarjetas de Servicio */
+.services { padding: 100px 8%; text-align: center; }
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card {
+    background: #fdfdfd;
+    padding: 50px 30px;
+    border-bottom: 4px solid #eee;
+    transition: var(--transition);
+    border-radius: 10px;
+}
+
+.card:hover {
+    border-color: var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.icon-box i {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+}
+
+/* Footer Industrial */
+footer {
+    background: var(--dark);
+    padding: 60px 8% 20px;
+    color: white;
+    text-align: center;
+}
+
+.copy {
+    margin-top: 40px;
+    color: #555;
+    font-size: 0.8rem;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+}
