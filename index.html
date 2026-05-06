@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mecánica de Mototaxis VLC | Lima, Perú</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/your-kit.js" crossorigin="anonymous"></script>
+    <title>Mecánica VLC | Especialistas en Mototaxis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="navbar">
@@ -15,45 +15,74 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#tienda">Tienda</a></li>
-                <li><a href="#login" class="btn-login">Ingresar</a></li>
+                <li><a href="#login" class="btn-login"><i class="fas fa-user-circle"></i> Ingresar</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Expertos en tu Herramienta de Trabajo</h1>
-            <p>Mantenimiento especializado para motos y mototaxis en Lima.</p>
-            <div class="cta-buttons">
-                <a href="#citas" class="btn-primary">Reservar Cita</a>
-                <a href="#tienda" class="btn-secondary">Ver Repuestos</a>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <span class="badge">Atención Rápida en Lima</span>
+                <h1>Expertos en tu Herramienta de Trabajo</h1>
+                <p>Mantenimiento especializado para que tu mototaxi nunca deje de circular.</p>
+                <div class="cta-group">
+                    <a href="#citas" class="btn-main">Reservar Cita Online</a>
+                    <a href="#tienda" class="btn-sub">Explorar Repuestos</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="servicios" class="services">
-        <h2>Nuestros Servicios</h2>
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones técnicas diseñadas para vehículos menores [cite: 30]</p>
+        </div>
         <div class="service-grid">
-            <div class="service-card">
-                <i class="fas fa-tools"></i>
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-tools"></i></div>
                 <h3>Mantenimiento Preventivo</h3>
-                <p>Asegura la vida útil de tu motor con chequeos periódicos.</p>
+                <p>Chequeos generales para evitar averías costosas y mejorar el rendimiento[cite: 46].</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-oil-can"></i>
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-oil-can"></i></div>
                 <h3>Cambio de Aceite</h3>
-                <p>Variedad de marcas según el requerimiento de tu vehículo.</p>
+                <p>Lubricantes de alta calidad específicos para motores de mototaxis.</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-motorcycle"></i>
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-engine"></i></div>
                 <h3>Reparación de Motores</h3>
-                <p>Especialistas en vehículos menores para que no dejes de circular.</p>
+                <p>Diagnóstico avanzado y reparación integral de motores 2T y 4T.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tienda" class="shop">
+        <h2>Catálogo de Productos</h2>
+        <p>Reserva tus repuestos y recógelos en el local [cite: 47]</p>
+        <div class="product-grid">
+            <div class="product-item">
+                <div class="img-placeholder">Aceite Castrol</div>
+                <h4>Aceite para Motor 4T</h4>
+                <span class="price">S/ 25.00</span>
+                <button class="btn-buy">Reservar</button>
+            </div>
+            <div class="product-item">
+                <div class="img-placeholder">Llantas</div>
+                <h4>Llanta Reforzada VLC</h4>
+                <span class="price">S/ 85.00</span>
+                <button class="btn-buy">Reservar</button>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Mecánica VLC - Lima, Perú. Todos los derechos reservados.</p>
+        <div class="footer-info">
+            <p><strong>Mecánica VLC</strong> - Lima, Perú</p>
+            <p>Transformación digital para el transporte menor[cite: 56, 59].</p>
+        </div>
+        <p class="copy">&copy; 2026 Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
