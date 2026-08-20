@@ -1,551 +1,282 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tienda Online Pro</title>
-
-<style>
-
-:root{
-    --primary:#2563eb;
-    --primary-dark:#1e40af;
-    --success:#10b981;
-    --bg:#f8fafc;
-    --card:#ffffff;
-    --text:#1f2937;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#f8fafc,#e2e8f0);
-    color:var(--text);
-}
-
-header{
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-dark)
-    );
-    color:white;
-    text-align:center;
-    padding:25px;
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
-}
-
-header h1{
-    font-size:2rem;
-}
-
-header p{
-    margin-top:5px;
-    opacity:.9;
-}
-
-.container{
-    width:95%;
-    max-width:1300px;
-    margin:20px auto;
-    display:flex;
-    gap:20px;
-}
-
-.productos{
-    flex:2;
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-    gap:20px;
-}
-
-.producto{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.producto:hover{
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
-
-.producto img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.producto-info{
-    padding:15px;
-}
-
-.producto h3{
-    margin-bottom:10px;
-}
-
-.precio{
-    font-size:1.3rem;
-    color:var(--success);
-    font-weight:bold;
-    margin-bottom:15px;
-}
-
-button{
-    width:100%;
-    border:none;
-    border-radius:10px;
-    padding:12px;
-    cursor:pointer;
-    font-weight:bold;
-    color:white;
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-dark)
-    );
-    transition:.3s;
-}
-
-button:hover{
-    transform:scale(1.03);
-}
-
-.carrito{
-    flex:1;
-    background:white;
-    padding:20px;
-    border-radius:18px;
-    height:fit-content;
-    position:sticky;
-    top:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.carrito h2{
-    margin-bottom:15px;
-}
-
-.item{
-    display:flex;
-    justify-content:space-between;
-    padding:10px 0;
-    border-bottom:1px solid #eee;
-}
-
-.total{
-    margin-top:15px;
-    font-size:1.3rem;
-    font-weight:bold;
-    color:var(--success);
-}
-
-input{
-    width:100%;
-    margin-top:15px;
-    padding:12px;
-    border-radius:10px;
-    border:2px solid #dbeafe;
-    font-size:15px;
-}
-
-input:focus{
-    outline:none;
-    border-color:var(--primary);
-}
-
-#boleta{
-    display:none;
-    background:white;
-    max-width:600px;
-    margin:30px auto;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
-
-#boleta h2{
-    text-align:center;
-    margin-bottom:15px;
-}
-
-#boleta table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
-}
-
-#boleta th{
-    background:var(--primary);
-    color:white;
-}
-
-#boleta th,
-#boleta td{
-    border:1px solid #ddd;
-    padding:10px;
-    text-align:left;
-}
-
-.ticket-total{
-    text-align:right;
-    margin-top:15px;
-    color:var(--success);
-}
-
-.ticket-footer{
-    text-align:center;
-    margin-top:20px;
-    color:#666;
-}
-
-@media(max-width:900px){
-
-    .container{
-        flex-direction:column;
-    }
-
-    .carrito{
-        position:relative;
-    }
-
-}
-
-@media(max-width:500px){
-
-    header h1{
-        font-size:1.5rem;
-    }
-
-    .producto img{
-        height:160px;
-    }
-
-}
-
-/* SOLO IMPRIMIR BOLETA */
-
-@media print {
-
-    body *{
-        visibility:hidden;
-    }
-
-    #boleta,
-    #boleta *{
-        visibility:visible;
-    }
-
-    #boleta{
-        position:absolute;
-        left:0;
-        top:0;
-        width:100%;
-        max-width:none;
-        margin:0;
-        box-shadow:none;
-        border:none;
-    }
-
-    .no-print{
-        display:none !important;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Horario Académico y Evaluaciones - 18 Semanas</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100 min-h-screen p-4 font-sans antialiased">
 
-<header>
-    <h1>🛒 Mi Tienda Online</h1>
-    <p>Compras rápidas y seguras</p>
-</header>
+    <div class="max-w-4xl mx-auto py-8">
+        <!-- Encabezado -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                Mi Horario y Evaluaciones
+            </h1>
+            <p class="text-slate-400 text-sm mt-2">Ciclo de 18 Semanas (Inicio: 10 de Agosto, 2026)</p>
+        </header>
 
-<div class="container">
-
-    <div class="productos">
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6">
-        <div class="producto-info">
-            <h3>Laptop Gamer</h3>
-            <div class="precio">S/ 2500</div>
-            <button onclick="agregar('Laptop Gamer',2500)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf">
-        <div class="producto-info">
-            <h3>PC Gamer</h3>
-            <div class="precio">S/ 4200</div>
-            <button onclick="agregar('PC Gamer',4200)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed">
-        <div class="producto-info">
-            <h3>Monitor 27"</h3>
-            <div class="precio">S/ 950</div>
-            <button onclick="agregar('Monitor 27',950)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7">
-        <div class="producto-info">
-            <h3>Teclado Mecánico RGB</h3>
-            <div class="precio">S/ 180</div>
-            <button onclick="agregar('Teclado Mecánico RGB',180)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1563297007-0686b7003af7">
-        <div class="producto-info">
-            <h3>Mouse Gamer RGB</h3>
-            <div class="precio">S/ 90</div>
-            <button onclick="agregar('Mouse Gamer RGB',90)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b">
-        <div class="producto-info">
-            <h3>Audífonos Gamer</h3>
-            <div class="precio">S/ 220</div>
-            <button onclick="agregar('Audífonos Gamer',220)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8">
-        <div class="producto-info">
-            <h3>MacBook Pro</h3>
-            <div class="precio">S/ 6800</div>
-            <button onclick="agregar('MacBook Pro',6800)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505">
-        <div class="producto-info">
-            <h3>iPhone 15 Pro</h3>
-            <div class="precio">S/ 4900</div>
-            <button onclick="agregar('iPhone 15 Pro',4900)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12">
-        <div class="producto-info">
-            <h3>Smartwatch</h3>
-            <div class="precio">S/ 650</div>
-            <button onclick="agregar('Smartwatch',650)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db">
-        <div class="producto-info">
-            <h3>Tablet Android</h3>
-            <div class="precio">S/ 1200</div>
-            <button onclick="agregar('Tablet Android',1200)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
-        <div class="producto-info">
-            <h3>Samsung Galaxy</h3>
-            <div class="precio">S/ 3100</div>
-            <button onclick="agregar('Samsung Galaxy',3100)">Agregar al carrito</button>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-        <div class="producto-info">
-            <h3>Reloj Inteligente Pro</h3>
-            <div class="precio">S/ 850</div>
-            <button onclick="agregar('Reloj Inteligente Pro',850)">Agregar al carrito</button>
-        </div>
-    </div>
-</div>
-
-    </div>
-
-    <div class="carrito">
-
-        <h2>🛒 Carrito</h2>
-
-        <div id="listaCarrito"></div>
-
-        <div class="total">
-            Total: S/ <span id="total">0.00</span>
+        <!-- Contenedor de Alertas / Cuenta Regresiva de Evaluaciones -->
+        <div id="contenedor-alertas" class="mb-6 space-y-3">
+            <!-- Inyectado dinámicamente -->
         </div>
 
-        <input
-            type="text"
-            id="cliente"
-            placeholder="Nombre del cliente">
-
-        <button
-            style="margin-top:15px;"
-            onclick="comprar()">
-            Finalizar Compra
-        </button>
-
-    </div>
-
-</div>
-
-<div id="boleta"></div>
-
-<script>
-
-let carrito = [];
-let total = 0;
-
-function agregar(nombre, precio){
-
-    carrito.push({
-        nombre,
-        precio
-    });
-
-    total += precio;
-
-    actualizarCarrito();
-}
-
-function actualizarCarrito(){
-
-    const lista =
-        document.getElementById("listaCarrito");
-
-    lista.innerHTML = "";
-
-    carrito.forEach(item=>{
-
-        lista.innerHTML += `
-            <div class="item">
-                <span>${item.nombre}</span>
-                <span>S/ ${item.precio.toFixed(2)}</span>
+        <!-- Controles de Semana -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+            <button onclick="cambiarSemana(-1)" class="w-full sm:w-auto px-4 py-2 bg-slate-800 hover:bg-slate-700 active:scale-95 transition rounded-xl text-sm font-medium cursor-pointer">
+                ← Semana Anterior
+            </button>
+            <div class="text-center">
+                <span id="label-semana" class="text-lg font-bold text-cyan-400">Semana 1</span>
+                <p id="label-fechas" class="text-xs text-slate-400">-</p>
             </div>
-        `;
-
-    });
-
-    document.getElementById("total")
-    .textContent = total.toFixed(2);
-
-}
-
-function comprar(){
-
-    const cliente =
-        document.getElementById("cliente").value;
-
-    if(carrito.length===0){
-        alert("El carrito está vacío");
-        return;
-    }
-
-    if(cliente.trim()===""){
-        alert("Ingrese el nombre del cliente");
-        return;
-    }
-
-    const fecha =
-        new Date().toLocaleString();
-
-    const numeroBoleta =
-        "B-" +
-        Date.now();
-
-    let detalle = "";
-
-    carrito.forEach(item=>{
-
-        detalle += `
-        <tr>
-            <td>${item.nombre}</td>
-            <td>S/ ${item.precio.toFixed(2)}</td>
-        </tr>
-        `;
-
-    });
-
-    document.getElementById("boleta").innerHTML = `
-
-        <h2>BOLETA DE VENTA</h2>
-
-        <p><strong>Número:</strong>
-        ${numeroBoleta}</p>
-
-        <p><strong>Fecha:</strong>
-        ${fecha}</p>
-
-        <p><strong>Cliente:</strong>
-        ${cliente}</p>
-
-        <table>
-
-            <tr>
-                <th>Producto</th>
-                <th>Precio</th>
-            </tr>
-
-            ${detalle}
-
-        </table>
-
-        <h2 class="ticket-total">
-            TOTAL: S/ ${total.toFixed(2)}
-        </h2>
-
-        <div class="ticket-footer">
-            Gracias por su compra ❤️
+            <button onclick="cambiarSemana(1)" class="w-full sm:w-auto px-4 py-2 bg-slate-800 hover:bg-slate-700 active:scale-95 transition rounded-xl text-sm font-medium cursor-pointer">
+                Siguiente Semana →
+            </button>
         </div>
 
-        <br>
+        <!-- Contenedor del Horario -->
+        <div id="contenedor-horario" class="space-y-4">
+            <!-- Inyectado por JS -->
+        </div>
+    </div>
 
-        <button
-            class="no-print"
-            onclick="window.print()">
-            🖨️ Imprimir Boleta
-        </button>
+    <script>
+        // Fecha de inicio: 10 de Agosto de 2026 (Lunes)
+        const fechaInicioCiclo = new Date(2026, 7, 10); 
+        const totalSemanas = 18;
 
-    `;
+        // Base de datos completa de evaluaciones y entregas por curso
+        const evaluacionesData = [
+            // Teoría de Sistemas
+            { curso: "Teoría de Sistemas", tipo: "PC1", desc: "Práctica Calificada 1", semana: 7, obs: "Evaluación individual" },
+            { curso: "Teoría de Sistemas", tipo: "PC2", desc: "Práctica Calificada 2", semana: 12, obs: "Evaluación individual" },
+            { curso: "Teoría de Sistemas", tipo: "PA", desc: "Participación en Clase", semana: 17, obs: "Evaluación individual" },
+            { curso: "Teoría de Sistemas", tipo: "EXFN", desc: "Examen Final", semana: 18, obs: "Evaluación individual" },
 
-    document.getElementById("boleta")
-    .style.display="block";
+            // Liderazgo y Gestión de Equipos
+            { curso: "Liderazgo y Gestión de Equipos", tipo: "PC1", desc: "Práctica Calificada 1", semana: 5, obs: "Individual" },
+            { curso: "Liderazgo y Gestión de Equipos", tipo: "PC2", desc: "Práctica Calificada 2", semana: 10, obs: "Individual" },
+            { curso: "Liderazgo y Gestión de Equipos", tipo: "PC3", desc: "Práctica Calificada 3", semana: 15, obs: "Individual" },
+            { curso: "Liderazgo y Gestión de Equipos", tipo: "PA", desc: "Participación en Clase", semana: 17, obs: "Individual" },
+            { curso: "Liderazgo y Gestión de Equipos", tipo: "EXFN", desc: "Examen Final", semana: 18, obs: "Individual" },
 
-    carrito = [];
-    total = 0;
+            // Lenguajes de Programación
+            { curso: "Lenguajes de Programación", tipo: "PC1", desc: "Práctica Calificada 1", semana: 5, obs: "Individual" },
+            { curso: "Lenguajes de Programación", tipo: "PC2", desc: "Práctica Calificada 2", semana: 10, obs: "Individual" },
+            { curso: "Lenguajes de Programación", tipo: "PA", desc: "Participación en Clase", semana: 17, obs: "Promedio de participaciones individuales" },
+            { curso: "Lenguajes de Programación", tipo: "PROY", desc: "Proyecto Final", semana: 18, obs: "Grupal (Avance al 100%)" },
 
-    actualizarCarrito();
+            // Interacción Hombre Máquina
+            { curso: "Interacción Hombre Máquina", tipo: "APF1", desc: "Avance de Proyecto Final 1", semana: 4, obs: "Grupal" },
+            { curso: "Interacción Hombre Máquina", tipo: "APF2", desc: "Avance de Proyecto Final 2", semana: 9, obs: "Grupal" },
+            { curso: "Interacción Hombre Máquina", tipo: "APF3", desc: "Avance de Proyecto Final 3", semana: 13, obs: "Grupal" },
+            { curso: "Interacción Hombre Máquina", tipo: "PA", desc: "Participación en Clase", semana: 17, obs: "Individual" },
+            { curso: "Interacción Hombre Máquina", tipo: "PROY", desc: "Proyecto Final", semana: 18, obs: "Grupal" },
 
-    document.getElementById("cliente").value="";
+            // Herramientas para la Comunicación Efectiva
+            { curso: "Herramientas para la Comunicación Efectiva", tipo: "AP1", desc: "Avance de Portafolio 1", semana: 3, obs: "Individual" },
+            { curso: "Herramientas para la Comunicación Efectiva", tipo: "AP2", desc: "Avance de Portafolio 2", semana: 7, obs: "Individual" },
+            { curso: "Herramientas para la Comunicación Efectiva", tipo: "AP3", desc: "Avance de Portafolio 3", semana: 12, obs: "Individual" },
+            { curso: "Herramientas para la Comunicación Efectiva", tipo: "PA", desc: "Participación en Clase", semana: 16, obs: "Compuesta por 4 actividades" },
+            { curso: "Herramientas para la Comunicación Efectiva", tipo: "PTF", desc: "Portafolio Final", semana: 18, obs: "Individual" },
 
-    window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:"smooth"
-    });
+            // Herramientas de Desarrollo
+            { curso: "Herramientas de Desarrollo", tipo: "APF1", desc: "Avance de Proyecto Final 1", semana: 6, obs: "Grupal" },
+            { curso: "Herramientas de Desarrollo", tipo: "APF2", desc: "Avance de Proyecto Final 2", semana: 11, obs: "Grupal" },
+            { curso: "Herramientas de Desarrollo", tipo: "APF3", desc: "Avance de Proyecto Final 3", semana: 15, obs: "Grupal" },
+            { curso: "Herramientas de Desarrollo", tipo: "PROY", desc: "Proyecto Final", semana: 18, obs: "Grupal" },
 
-}
+            // Desarrollo Web Integrado
+            { curso: "Desarrollo Web Integrado", tipo: "APF1", desc: "Avance de Proyecto Final 1", semana: 5, obs: "Grupal" },
+            { curso: "Desarrollo Web Integrado", tipo: "APF2", desc: "Avance de Proyecto Final 2", semana: 10, obs: "Grupal" },
+            { curso: "Desarrollo Web Integrado", tipo: "APF3", desc: "Avance de Proyecto Final 3", semana: 15, obs: "Grupal" },
+            { curso: "Desarrollo Web Integrado", tipo: "PROY", desc: "Proyecto Final", semana: 18, obs: "Grupal" }
+        ];
 
-</script>
+        // Horario base semanal con días asociados
+        const horarioBase = [
+            { 
+                dia: "Lunes", 
+                diaIndex: 0,
+                clases: [
+                    { curso: "Lenguajes de Programación", hora: "10:15 - 11:45" }, 
+                    { curso: "Herramientas de Desarrollo", hora: "15:30 - 17:00" }
+                ] 
+            },
+            { 
+                dia: "Martes", 
+                diaIndex: 1,
+                clases: [
+                    { curso: "Liderazgo y Gestión de Equipos", hora: "08:30 - 10:00" }, 
+                    { curso: "Interacción Hombre Máquina", hora: "16:00 - 18:15" }
+                ] 
+            },
+            { 
+                dia: "Miércoles", 
+                diaIndex: 2,
+                clases: [
+                    { curso: "Desarrollo Web Integrado", hora: "08:30 - 10:45" }, 
+                    { curso: "Teoría de Sistemas", hora: "11:00 - 13:15" }, 
+                    { curso: "Herramientas de Desarrollo", hora: "15:30 - 17:00" }
+                ] 
+            },
+            { 
+                dia: "Jueves", 
+                diaIndex: 3,
+                clases: [
+                    { curso: "Liderazgo y Gestión de Equipos", hora: "08:30 - 10:00" }, 
+                    { curso: "Herramientas para la Comunicación Efectiva", hora: "13:30 - 15:45" }
+                ] 
+            },
+            { dia: "Viernes", diaIndex: 4, clases: [] },
+            { dia: "Sábado", diaIndex: 5, clases: [] },
+            { dia: "Domingo", diaIndex: 6, clases: [] }
+        ];
 
+        // Calcular automáticamente la semana actual basada en la fecha del sistema
+        function calcularSemanaActual() {
+            const hoy = new Date();
+            hoy.setHours(0,0,0,0);
+            const diffTime = hoy.getTime() - fechaInicioCiclo.getTime();
+            const diffDays = Math.floor(diffTime / (1000 * 3600 * 24));
+            let sem = Math.floor(diffDays / 7) + 1;
+            if (sem < 1) return 1;
+            if (sem > totalSemanas) return totalSemanas;
+            return sem;
+        }
+
+        let semanaActual = calcularSemanaActual();
+
+        function obtenerFechaDeEvaluacion(semana, diaIndexCurso) {
+            const diasOffset = (semana - 1) * 7 + diaIndexCurso;
+            const fecha = new Date(fechaInicioCiclo);
+            fecha.setDate(fechaInicioCiclo.getDate() + diasOffset);
+            fecha.setHours(0,0,0,0);
+            return fecha;
+        }
+
+        // Buscar qué día de la semana se imparte un curso específico
+        function encontrarDiaCurso(nombreCurso) {
+            for (let item of horarioBase) {
+                if (item.clases.some(c => c.curso === nombreCurso)) {
+                    return item.diaIndex;
+                }
+            }
+            return 2; // Por defecto miércoles si no se halla exacto
+        }
+
+        function actualizarAlertasYNotificaciones() {
+            const hoy = new Date();
+            hoy.setHours(0,0,0,0);
+            let alertasHTML = '';
+
+            evaluacionesData.forEach(ev => {
+                const diaIndex = encontrarDiaCurso(ev.curso);
+                const fechaEv = obtenerFechaDeEvaluacion(ev.semana, diaIndex);
+                const diferenciaDias = Math.ceil((fechaEv.getTime() - hoy.getTime()) / (1000 * 3600 * 24));
+
+                // Notificar si faltan entre 0 y 7 días exactos
+                if (diferenciaDias >= 0 && diferenciaDias <= 7) {
+                    alertasHTML += `
+                        <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">⚠️</span>
+                                <div>
+                                    <h4 class="text-amber-400 font-bold text-sm">Próxima Evaluación: ${ev.curso}</h4>
+                                    <p class="text-slate-300 text-xs mt-0.5"><span class="font-semibold">${ev.tipo}:</span> ${ev.desc} (Semana ${ev.semana}) - <span class="italic">${ev.obs}</span></p>
+                                </div>
+                            </div>
+                            <span class="bg-amber-500 text-slate-950 font-extrabold text-xs px-3 py-1.5 rounded-xl shrink-0">
+                                ${diferenciaDias === 0 ? '¡Es hoy!' : `Faltan ${diferenciaDias} ${diferenciaDias === 1 ? 'día' : 'días'}`}
+                            </span>
+                        </div>
+                    `;
+                }
+            });
+
+            document.getElementById('contenedor-alertas').innerHTML = alertasHTML;
+        }
+
+        function actualizarHorario() {
+            const diasOffset = (semanaActual - 1) * 7;
+            const inicioSemana = new Date(fechaInicioCiclo);
+            inicioSemana.setDate(fechaInicioCiclo.getDate() + diasOffset);
+
+            const finSemana = new Date(inicioSemana);
+            finSemana.setDate(inicioSemana.getDate() + 6);
+
+            const opciones = { day: 'numeric', month: 'short' };
+            document.getElementById('label-semana').innerText = `Semana ${semanaActual} de ${totalSemanas}`;
+            document.getElementById('label-fechas').innerText = `${inicioSemana.toLocaleDateString('es-ES', opciones)} - ${finSemana.toLocaleDateString('es-ES', opciones)}`;
+
+            // Obtener evaluaciones correspondientes a esta semana
+            const evsEstaSemana = evaluacionesData.filter(e => e.semana === semanaActual);
+
+            let html = '';
+            horarioBase.forEach((item, index) => {
+                const fechaDia = new Date(inicioSemana);
+                fechaDia.setDate(inicioSemana.getDate() + index);
+                
+                const esHoy = new Date().toDateString() === fechaDia.toDateString();
+
+                html += `
+                    <div class="bg-slate-900/80 border ${esHoy ? 'border-cyan-500 shadow-cyan-500/10 shadow-lg' : 'border-slate-800'} rounded-2xl p-5 transition">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                            <h3 class="font-bold text-lg ${esHoy ? 'text-cyan-400 flex items-center gap-2' : 'text-slate-200'}">
+                                ${esHoy ? '<span class="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-ping"></span>' : ''}
+                                ${item.dia} ${fechaDia.getDate()}
+                            </h3>
+                            ${esHoy ? '<span class="text-xs bg-cyan-500/20 text-cyan-300 font-bold px-2.5 py-0.5 rounded-full border border-cyan-500/30">Hoy</span>' : ''}
+                        </div>
+                `;
+
+                if (item.clases.length > 0) {
+                    html += `<div class="space-y-3">`;
+                    item.clases.forEach(c => {
+                        // Buscar si este curso tiene evaluación esta semana
+                        const evCurso = evsEstaSemana.find(e => e.curso === c.curso);
+
+                        html += `
+                            <div class="bg-slate-950/50 p-3.5 rounded-xl border ${evCurso ? 'border-amber-500/40 bg-amber-950/10' : 'border-slate-800/80'} flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <div>
+                                    <span class="text-sm font-semibold text-slate-100">${c.curso}</span>
+                                    ${evCurso ? `
+                                        <div class="mt-1.5 flex items-center gap-1.5 flex-wrap">
+                                            <span class="bg-amber-500/20 text-amber-300 text-[11px] font-bold px-2 py-0.5 rounded border border-amber-500/30">
+                                                📌 ${evCurso.tipo}: ${evCurso.desc}
+                                            </span>
+                                            <span class="text-slate-400 text-[11px] italic">(${evCurso.obs})</span>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                                <span class="text-xs text-cyan-300 font-bold shrink-0 bg-slate-900 px-2.5 py-1 rounded-lg w-fit">
+                                    🕒 ${c.hora}
+                                </span>
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+                } else {
+                    html += `<p class="text-slate-600 text-sm italic">Sin clases programadas.</p>`;
+                }
+
+                html += `</div>`;
+            });
+
+            document.getElementById('contenedor-horario').innerHTML = html;
+        }
+
+        function cambiarSemana(dir) {
+            semanaActual = Math.max(1, Math.min(totalSemanas, semanaActual + dir));
+            actualizarHorario();
+        }
+
+        // Inicializar componentes al cargar la página
+        actualizarAlertasYNotificaciones();
+        actualizarHorario();
+    </script>
 </body>
 </html>
